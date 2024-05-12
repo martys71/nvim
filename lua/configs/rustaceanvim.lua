@@ -1,9 +1,33 @@
 local on_attach = require("nvchad.configs.lspconfig").on_attach
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
+local mason_registry = require "mason-registry"
+local codelldb = mason_registry.get_package "codelldb"
+local extension_path = codelldb:get_install_path() .. "\\extension\\"
+local codelldb_path = extension_path .. "adapter\\codelldb.exe"
+local liblldb_path = extension_path .. "lldb\\lib\\liblldb.lib"
+local codelldb_port = "${port}"
+
 vim.g.rustaceanvim = {
+  dap = {
+    -- adapter = require("rustaceanvim.config").get_codelldb_adapter(codelldb_path, liblldb_path)
+    adapter = {
+      type = "server",
+      port = codelldb_port,
+      host = "127.0.0.1",
+      executable = {
+        command = codelldb_path,
+        args = {
+          -- "--liblldb",
+          -- liblldb_path,
+          "--port",
+          codelldb_port,
+        },
+      },
+    },
+  },
   server = {
     on_attach = on_attach,
     capabilities = capabilities,
-  }
+  },
 }
