@@ -22,3 +22,4 @@ vim.api.nvim_create_autocmd({"FileType"},
   })
 -- local o = vim.o
 -- o.cursorlineopt ='both' -- to enable cursorline!
+
