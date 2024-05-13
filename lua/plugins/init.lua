@@ -24,7 +24,7 @@ return {
         "html-lsp",
         "css-lsp",
         "prettier",
-        -- "codelldb",
+        "codelldb",
         "rust-analyzer",
         "wgsl-analyzer",
       },
