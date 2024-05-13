@@ -16,14 +16,11 @@ dap.listeners.after.event_exited["dapui_config"] = function()
   dapui.close();
 end
 
-map("n", "<leader>dt", ":DapToggleBreakpoint<CR>")
+map("n", "<leader>db", ":DapToggleBreakpoint<CR>")
 map("n", "<leader>dx", ":DapTerminate<CR>")
 map("n", "<leader>do", ":DapStepOver<CR>")
-map("n", "<leader>dus", function()
-  local widgets = require "dap.ui.widgets"
-  local sidebar = widgets.sidebar(widgets.scopes)
-  sidebar.toggle()
-  -- require ("dapui").toggle()
-end, { desc = "Open debugging sidebar" })
+map("n", "<leader>di", ":DapStepInto<CR>")
+map("n", "<leader>dq", ":DapStepOut<CR>")
+map("n", "<leader>dc", ":DapContinue<CR>")
 
 vim.g.dap_virtual_text = true

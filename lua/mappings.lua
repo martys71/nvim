@@ -8,3 +8,12 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+--
+
+-- map("n", "<A-j>", function()
+--   require("nvchad.term").toggle ({
+--     pos = "vsp",
+--     id = "vtoggleTerm",
+--     cmd = {"nu", "-e"},
+--   })
+-- end)

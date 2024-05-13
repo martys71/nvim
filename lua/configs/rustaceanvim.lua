@@ -3,9 +3,9 @@ local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 local mason_registry = require "mason-registry"
 local codelldb = mason_registry.get_package "codelldb"
-local extension_path = codelldb:get_install_path() .. "\\extension\\"
-local codelldb_path = extension_path .. "adapter\\codelldb.exe"
-local liblldb_path = extension_path .. "lldb\\lib\\liblldb.lib"
+local extension_path = codelldb:get_install_path() .. "/extension/"
+local codelldb_path = extension_path .. "adapter/codelldb"
+-- local liblldb_path = extension_path .. "lldb/lib/liblldb.lib"
 local codelldb_port = "${port}"
 
 vim.g.rustaceanvim = {
@@ -27,7 +27,15 @@ vim.g.rustaceanvim = {
     },
   },
   server = {
-    on_attach = on_attach,
+    on_attach = function(_, _)
+      vim.keymap.set("n", "<leader>k", ":RustLsp hover actions<CR>")
+      vim.keymap.set("n", "<leader>a", ":RustLsp codeAction<CR>")
+    end,
     capabilities = capabilities,
+  },
+  tools = {
+    float_win_config = {
+      auto_focus = true,
+    },
   },
 }
