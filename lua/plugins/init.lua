@@ -10,7 +10,11 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
+    dependencies = {
+      "williamboman/mason.nvim",
+    },
     config = function()
+      require('mason').setup()
       require("nvchad.configs.lspconfig").defaults()
       require "configs.lspconfig"
     end,
@@ -25,6 +29,7 @@ return {
         "css-lsp",
         "prettier",
         "codelldb",
+        "pyright",
         "rust-analyzer",
         "wgsl-analyzer",
       },

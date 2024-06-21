@@ -27,3 +27,7 @@ lspconfig.tsserver.setup {
 -- wgsl
 lspconfig.wgsl_analyzer.setup ({})
 
+-- pyright
+lspconfig.pyright.setup {
+  capabilities = capabilities,
+}
