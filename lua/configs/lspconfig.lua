@@ -31,3 +31,4 @@ lspconfig.wgsl_analyzer.setup ({})
 lspconfig.pyright.setup {
   capabilities = capabilities,
 }
+
