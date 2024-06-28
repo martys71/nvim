@@ -29,6 +29,7 @@ return {
         "css-lsp",
         "prettier",
         "codelldb",
+        "pest-language-server",
         "pyright",
         "rust-analyzer",
         "wgsl-analyzer",
@@ -111,6 +112,7 @@ return {
   },
   {
     "pest-parser/pest.vim",
+    ft = "pest",
     config = function()
       require('pest-vim').setup {}
     end,

@@ -10,7 +10,7 @@ require "nvchad.options"
 -- end
 
 vim.filetype.add { extension = { wgsl = "wgsl" } }
-vim.filetype.add { extension = { pest = "pest" } }
+-- vim.filetype.add { extension = { pest = "pest" } }
 
 vim.api.nvim_create_autocmd({"filetype"},
   {
