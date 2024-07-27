@@ -29,6 +29,7 @@ vim.g.rustaceanvim = {
     on_attach = function(_, _)
       vim.keymap.set("n", "<leader>k", ":RustLsp hover actions<CR>")
       vim.keymap.set("n", "<leader>a", ":RustLsp codeAction<CR>")
+      vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
     end,
     capabilities = capabilities,
   },
