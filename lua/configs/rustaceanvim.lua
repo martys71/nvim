@@ -1,4 +1,5 @@
 local on_attach = require("nvchad.configs.lspconfig").on_attach
+local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 local mason_registry = require "mason-registry"
@@ -27,9 +28,10 @@ vim.g.rustaceanvim = {
   },
   server = {
     on_attach = function(_, _)
-      vim.keymap.set("n", "<leader>k", ":RustLsp hover actions<CR>")
-      vim.keymap.set("n", "<leader>a", ":RustLsp codeAction<CR>")
-      vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
+      on_attach()
+      map("n", "<leader>k", ":RustLsp hover actions<CR>")
+      map("n", "<leader>a", ":RustLsp codeAction<CR>")
+      -- map("n", "<leader>rn", vim.lsp.buf.rename)
     end,
     capabilities = capabilities,
   },
