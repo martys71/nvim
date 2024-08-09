@@ -9,6 +9,8 @@ local codelldb_command = extension_path .. "adapter/codelldb"
 -- local liblldb_path = extension_path .. "lldb/lib/liblldb.lib"
 local codelldb_port = "${port}"
 
+local map = vim.keymap.set
+
 -- local lldb_command = "lldb"
 vim.g.rustaceanvim = {
   dap = {
@@ -34,6 +36,7 @@ vim.g.rustaceanvim = {
       -- map("n", "<leader>rn", vim.lsp.buf.rename)
     end,
     capabilities = capabilities,
+    on_init = on_init,
   },
   tools = {
     float_win_config = {
