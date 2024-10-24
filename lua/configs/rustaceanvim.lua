@@ -1,4 +1,5 @@
 local on_attach = require("nvchad.configs.lspconfig").on_attach
+local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 local mason_registry = require "mason-registry"
@@ -7,6 +8,8 @@ local extension_path = codelldb:get_install_path() .. "/extension/"
 local codelldb_command = extension_path .. "adapter/codelldb"
 -- local liblldb_path = extension_path .. "lldb/lib/liblldb.lib"
 local codelldb_port = "${port}"
+
+local map = vim.keymap.set
 
 -- local lldb_command = "lldb"
 vim.g.rustaceanvim = {
@@ -27,11 +30,13 @@ vim.g.rustaceanvim = {
   },
   server = {
     on_attach = function(_, _)
-      vim.keymap.set("n", "<leader>k", ":RustLsp hover actions<CR>")
-      vim.keymap.set("n", "<leader>a", ":RustLsp codeAction<CR>")
-      vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
+      on_attach()
+      map("n", "<leader>k", ":RustLsp hover actions<CR>")
+      map("n", "<leader>a", ":RustLsp codeAction<CR>")
+      -- map("n", "<leader>rn", vim.lsp.buf.rename)
     end,
     capabilities = capabilities,
+    on_init = on_init,
   },
   tools = {
     float_win_config = {
