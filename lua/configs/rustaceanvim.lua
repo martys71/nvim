@@ -3,7 +3,12 @@ local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 local mason_registry = require "mason-registry"
-local codelldb = mason_registry.get_package "codelldb"
+
+if not mason_registry.is_installed("codelldb") then
+  vim.cmd("MasonInstall codelldb")
+end
+
+local codelldb = mason_registry.get_package("codelldb")
 local extension_path = codelldb:get_install_path() .. "/extension/"
 local codelldb_command = extension_path .. "adapter/codelldb"
 -- local liblldb_path = extension_path .. "lldb/lib/liblldb.lib"

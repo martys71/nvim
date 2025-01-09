@@ -14,13 +14,15 @@ return {
       "williamboman/mason.nvim",
     },
     config = function()
-      require('mason').setup()
+      require("mason").setup()
       require("nvchad.configs.lspconfig").defaults()
       require "configs.lspconfig"
     end,
   },
   {
     "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
     opts = {
       ensure_installed = {
         "lua-language-server",
@@ -54,8 +56,6 @@ return {
     "mrcjkb/rustaceanvim",
     version = "^4",
     lazy = false,
-    -- ft = { "rust" },
-    -- dependencies = "neovim/nvim-lspconfig",
     config = function()
       require "configs.rustaceanvim"
     end,
@@ -68,7 +68,7 @@ return {
   },
   {
     "rcarriga/nvim-dap-ui",
-    dependencies = "nvim-neotest/nvim-nio"
+    dependencies = "nvim-neotest/nvim-nio",
   },
   {
     "saecki/crates.nvim",
@@ -114,8 +114,21 @@ return {
     "pest-parser/pest.vim",
     ft = "pest",
     config = function()
-      require('pest-vim').setup {}
+      require("pest-vim").setup {}
     end,
-  }
+  },
+  {
+    "nvim-neorg/neorg",
+    lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
+    version = "*", -- Pin Neorg to the latest stable release
+    config = function()
+      require("neorg").setup {
+        load = {
+          ["core.defaults"] = {},
+          ["core.concealer"] = {},
+        },
+      }
+    end,
+  },
 }
 --
