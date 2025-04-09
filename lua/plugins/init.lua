@@ -12,6 +12,7 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
       "williamboman/mason.nvim",
+      'saghen/blink.cmp'
     },
     config = function()
       require("mason").setup()
@@ -19,6 +20,25 @@ return {
       require "configs.lspconfig"
     end,
   },
+  -- {
+  --   'saghen/blink.cmp',
+  --   dependencies = { 'rafamadriz/friendly-snippets'},
+  --   version = '1.*',
+  --   ---@module 'blink.cmp'
+  --   ---@type blink.cmp.Config
+  --   opts = {
+  --     keymap = { preset = 'default' },
+  --     appearance = {
+  --       nerd_font_variant = 'mono'
+  --     },
+  --     completion = { documentation = { auto_show = false }},
+  --     sources = {
+  --       default = { 'lsp', 'path', 'snippets', 'buffer'},
+  --     },
+  --     fuzzy = { implementation = "prefer_rust_with_warning" },
+  --   },
+  --   opts_extend = { "sources.default" },
+  -- },
   {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
@@ -36,6 +56,7 @@ return {
         "rust-analyzer",
         "wgsl-analyzer",
       },
+      automatic_installation = true,
     },
   },
   {
@@ -54,7 +75,7 @@ return {
   },
   {
     "mrcjkb/rustaceanvim",
-    version = "^4",
+    version = "^6",
     lazy = false,
     config = function()
       require "configs.rustaceanvim"
