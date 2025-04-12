@@ -1,13 +1,6 @@
 require "nvchad.options"
 
--- add yours here!
--- if vim.loop.os_uname().sysname == "Windows_NT" then
--- vim.o.shell = "bash.exe"
--- vim.o.shellcmdflag = "-c"
---
--- vim.o.shell = "nu"
--- vim.o.shellcmdflag = "-e"
--- end
+require "configs.nushell"
 
 vim.filetype.add { extension = { wgsl = "wgsl" } }
 -- vim.filetype.add { extension = { pest = "pest" } }
