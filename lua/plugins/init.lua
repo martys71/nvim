@@ -8,18 +8,18 @@ return {
       require "configs.conform"
     end,
   },
-  {
-    "neovim/nvim-lspconfig",
-    dependencies = {
-      "williamboman/mason.nvim",
-      'saghen/blink.cmp'
-    },
-    config = function()
-      require("mason").setup()
-      require("nvchad.configs.lspconfig").defaults()
-      require "configs.lspconfig"
-    end,
-  },
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   dependencies = {
+  --     "williamboman/mason.nvim",
+  --     'saghen/blink.cmp'
+  --   },
+  --   config = function()
+  --     require("mason").setup()
+  --     require("nvchad.configs.lspconfig").defaults()
+  --     require "configs.lspconfig"
+  --   end,
+  -- },
   -- {
   --   'saghen/blink.cmp',
   --   dependencies = { 'rafamadriz/friendly-snippets'},
@@ -104,13 +104,13 @@ return {
       crates.show()
     end,
   },
-  {
-    "rust-lang/rust.vim",
-    ft = "rust",
-    init = function()
-      vim.g.rustfmt_autosave = 1
-    end,
-  },
+  -- {
+  --   "rust-lang/rust.vim",
+  --   ft = "rust",
+  --   init = function()
+  --     vim.g.rustfmt_autosave = 1
+  --   end,
+  -- },
   {
     "theHamsta/nvim-dap-virtual-text",
     lazy = false,
@@ -118,19 +118,19 @@ return {
       require("nvim-dap-virtual-text").setup()
     end,
   },
-  {
-    "hrsh7th/nvim-cmp",
-    opts = function()
-      local M = require "nvchad.configs.cmp"
-      M.completion.completeopt = "menu,menuone,noselect"
-      M.mapping["<CR>"] = cmp.mapping.confirm {
-        behavior = cmp.ConfirmBehavior.Insert,
-        select = false,
-      }
-      table.insert(M.sources, { name = "crates" })
-      return M
-    end,
-  },
+  -- {
+  --   "hrsh7th/nvim-cmp",
+  --   opts = function()
+  --     local M = require "nvchad.configs.cmp"
+  --     M.completion.completeopt = "menu,menuone,noselect"
+  --     M.mapping["<CR>"] = cmp.mapping.confirm {
+  --       behavior = cmp.ConfirmBehavior.Insert,
+  --       select = false,
+  --     }
+  --     table.insert(M.sources, { name = "crates" })
+  --     return M
+  --   end,
+  -- },
   {
     "pest-parser/pest.vim",
     ft = "pest",

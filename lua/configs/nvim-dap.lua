@@ -1,7 +1,6 @@
 require("dapui").setup()
 
 local map = vim.keymap.set
-local dap = require("dap")
 local dapui = require("dapui")
 
 local dap = require('dap')
@@ -11,8 +10,8 @@ local codelldb = false
 local codelldb_command = "codelldb"
 local mason_registry = require "mason-registry"
 if mason_registry.is_installed("codelldb") then
-  local codelldb = mason_registry.get_package("codelldb")
-  local codelldb_path = codelldb:get_install_path() .. "/extension/adapter/"
+  local codelldb_package = mason_registry.get_package("codelldb")
+  local codelldb_path = codelldb_package:get_install_path() .. "/extension/adapter/"
   codelldb_command = codelldb_path .. codelldb_command
   codelldb = true
 elseif vim.fn.executable(codelldb_command) then
