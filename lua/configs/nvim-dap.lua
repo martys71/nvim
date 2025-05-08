@@ -53,7 +53,6 @@ if codelldb then
   }
   dap.configurations.c = dap.configurations.cpp
   dap.configurations.rust = dap.configurations.cpp
-
 elseif lldbdap then
   dap.configurations.cpp = {
     {
