@@ -8,13 +8,8 @@ local dap = require('dap')
 -- Konfigruracja adaptera codelldb
 local codelldb = false
 local codelldb_command = "codelldb"
-local mason_registry = require "mason-registry"
-if mason_registry.is_installed("codelldb") then
-  local codelldb_package = mason_registry.get_package("codelldb")
-  local codelldb_path = codelldb_package:get_install_path() .. "/extension/adapter/"
-  codelldb_command = codelldb_path .. codelldb_command
-  codelldb = true
-elseif vim.fn.executable(codelldb_command) then
+if vim.fn.executable(codelldb_command) then
+  codelldb_command = vim.fn.exepath("codelldb")
   codelldb = true
 end
 

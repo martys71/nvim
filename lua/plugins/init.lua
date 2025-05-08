@@ -1,6 +1,10 @@
 local cmp = require "cmp"
 
 return {
+  -- {
+  --   'tpope/vim-dadbod',
+  --   cmd = "DB",
+  -- },
   {
     "stevearc/conform.nvim",
     -- event = 'BufWritePre', -- uncomment for format on save
@@ -69,6 +73,9 @@ return {
       },
       automatic_installation = true,
     },
+    config = function()
+      require("mason").setup({})
+    end,
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -166,4 +173,5 @@ return {
     end,
   },
 }
---
+
+
