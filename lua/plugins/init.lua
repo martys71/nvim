@@ -1,10 +1,12 @@
 local cmp = require "cmp"
 
 return {
-  -- {
-  --   'tpope/vim-dadbod',
-  --   cmd = "DB",
-  -- },
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require("configs.lspconfig")
+    end,
+  },
   {
     "stevearc/conform.nvim",
     -- event = 'BufWritePre', -- uncomment for format on save
@@ -23,37 +25,6 @@ return {
       require('render-markdown').enable()
     end,
   },
-  -- {
-  --   "neovim/nvim-lspconfig",
-  --   dependencies = {
-  --     "williamboman/mason.nvim",
-  --     'saghen/blink.cmp'
-  --   },
-  --   config = function()
-  --     require("mason").setup()
-  --     require("nvchad.configs.lspconfig").defaults()
-  --     require "configs.lspconfig"
-  --   end,
-  -- },
-  -- {
-  --   'saghen/blink.cmp',
-  --   dependencies = { 'rafamadriz/friendly-snippets'},
-  --   version = '1.*',
-  --   ---@module 'blink.cmp'
-  --   ---@type blink.cmp.Config
-  --   opts = {
-  --     keymap = { preset = 'default' },
-  --     appearance = {
-  --       nerd_font_variant = 'mono'
-  --     },
-  --     completion = { documentation = { auto_show = false }},
-  --     sources = {
-  --       default = { 'lsp', 'path', 'snippets', 'buffer'},
-  --     },
-  --     fuzzy = { implementation = "prefer_rust_with_warning" },
-  --   },
-  --   opts_extend = { "sources.default" },
-  -- },
   {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
@@ -70,6 +41,7 @@ return {
         "pyright",
         "rust-analyzer",
         "wgsl-analyzer",
+        "sqlls",
       },
       automatic_installation = true,
     },
@@ -125,13 +97,6 @@ return {
       crates.show()
     end,
   },
-  -- {
-  --   "rust-lang/rust.vim",
-  --   ft = "rust",
-  --   init = function()
-  --     vim.g.rustfmt_autosave = 1
-  --   end,
-  -- },
   {
     "theHamsta/nvim-dap-virtual-text",
     lazy = false,
@@ -139,19 +104,6 @@ return {
       require("nvim-dap-virtual-text").setup()
     end,
   },
-  -- {
-  --   "hrsh7th/nvim-cmp",
-  --   opts = function()
-  --     local M = require "nvchad.configs.cmp"
-  --     M.completion.completeopt = "menu,menuone,noselect"
-  --     M.mapping["<CR>"] = cmp.mapping.confirm {
-  --       behavior = cmp.ConfirmBehavior.Insert,
-  --       select = false,
-  --     }
-  --     table.insert(M.sources, { name = "crates" })
-  --     return M
-  --   end,
-  -- },
   {
     "pest-parser/pest.vim",
     ft = "pest",
