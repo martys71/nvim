@@ -1,10 +1,14 @@
-local cmp = require "cmp"
+-- local cmp = require "cmp"
 
 return {
   {
+    import = "nvchad.blink.lazyspec",
+
+  },
+  {
     "neovim/nvim-lspconfig",
     config = function()
-      require("configs.lspconfig")
+      require "configs.lspconfig"
     end,
   },
   {
@@ -15,14 +19,14 @@ return {
     end,
   },
   {
-    'MeanderingProgrammer/render-markdown.nvim',
+    "MeanderingProgrammer/render-markdown.nvim",
     dependencies = {
-      'nvim-treesitter/nvim-treesitter',
-      'nvim-tree/nvim-web-devicons',
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
     },
     opts = {},
     init = function()
-      require('render-markdown').enable()
+      require("render-markdown").enable()
     end,
   },
   {
@@ -41,12 +45,12 @@ return {
         "pyright",
         "rust-analyzer",
         "wgsl-analyzer",
-        "sqlls",
+        -- "sqlls",
       },
       automatic_installation = true,
     },
     config = function()
-      require("mason").setup({})
+      require("mason").setup {}
     end,
   },
   {
@@ -84,19 +88,19 @@ return {
     "rcarriga/nvim-dap-ui",
     dependencies = "nvim-neotest/nvim-nio",
   },
-  {
-    "saecki/crates.nvim",
-    ft = { "toml" },
-    config = function(_, opts)
-      local crates = require "crates"
-      crates.setup(opts)
-      require "configs.crates-mappings"
-      require("cmp").setup.buffer {
-        sources = { { name = "crates" } },
-      }
-      crates.show()
-    end,
-  },
+  -- {
+  --   "saecki/crates.nvim",
+  --   ft = { "toml" },
+  --   config = function(_, opts)
+  --     local crates = require "crates"
+  --     crates.setup(opts)
+  --     require "configs.crates-mappings"
+  --     require("cmp").setup.buffer {
+  --       sources = { { name = "crates" } },
+  --     }
+  --     crates.show()
+  --   end,
+  -- },
   {
     "theHamsta/nvim-dap-virtual-text",
     lazy = false,
@@ -124,5 +128,26 @@ return {
       }
     end,
   },
+  {
+    "kristijanhusak/vim-dadbod-ui",
+    dependencies = {
+      { "tpope/vim-dadbod",                     lazy = true },
+      { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true },
+    },
+    cmd = {
+      "DBUI",
+      "DBUIToggle",
+      "DBUIAddConnection",
+      "DBUIFindBuffer",
+    },
+    init = function()
+      vim.g.db_ui_use_nerd_fonts = 1
+    end,
+  },
+  {
+    'saghen/blink.cmp',
+    opts = function()
+      require "configs.blink"
+    end
+  },
 }
-

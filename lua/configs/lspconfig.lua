@@ -1,8 +1,8 @@
 require("nvchad.configs.lspconfig").defaults()
 
-local servers = { "sqlls" }
+-- vim.lsp.enable('sqlls')
 
-vim.lsp.config('sqlls', {})
+local capabilities = require('blink.cmp').get_lsp_capabilities()
+local lspconfig = require('lspconfig')
 
-vim.lsp.enable(servers)
-
+lspconfig['lua_ls'].setup({ capabilities = capabilities })
