@@ -1,6 +1,6 @@
 require "nvchad.options"
-
 require "configs.nushell"
+require "configs.lsp"
 
 vim.filetype.add { extension = { wgsl = "wgsl" } }
 -- vim.filetype.add { extension = { pest = "pest" } }
