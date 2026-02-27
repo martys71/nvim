@@ -3,14 +3,7 @@
 return {
   {
     import = "nvchad.blink.lazyspec",
-
   },
-  -- {
-  --   "neovim/nvim-lspconfig",
-  --   config = function()
-  --     require "configs.lspconfig"
-  --   end,
-  -- },
   {
     "stevearc/conform.nvim",
     -- event = 'BufWritePre', -- uncomment for format on save
@@ -67,6 +60,7 @@ return {
         "markdown",
         "markdown_inline",
       },
+      build = ":TSUpdate",
       highlight = { enable = true },
     },
   },
@@ -145,24 +139,39 @@ return {
     end,
   },
   {
-    'saghen/blink.cmp',
+    "saghen/blink.cmp",
     opts = function()
       require "configs.blink"
-    end
+    end,
   },
   {
-    'cordx56/rustowl',
-    version = '*',
-    build = 'cargo binstall rustowl',
+    "cordx56/rustowl",
+    version = "*",
+    build = "cargo binstall rustowl",
     lazy = false,
     opts = {
       client = {
         on_attach = function(_, buffer)
-          vim.keymap.set('n', '<leader>o', function()
-            require('rustowl').toggle(buffer)
-          end, { buffer = buffer, desc = 'Toggle RustOwl' })
-        end
+          vim.keymap.set("n", "<leader>o", function()
+            require("rustowl").toggle(buffer)
+          end, { buffer = buffer, desc = "Toggle RustOwl" })
+        end,
       },
     },
-  }
+  },
+  {
+    "VPavliashvili/json-nvim",
+    ft = "json", -- only load for json filetype
+    config = function()
+      vim.keymap.set("n", "<leader>jff", "<cmd>JsonFormatFile<cr>")
+      vim.keymap.set("n", "<leader>jmf", "<cmd>JsonMinifyFile<cr>")
+    end,
+  },
+  {
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    ft = { "typescript", "typescriptreact", "javascript", "javscriptreact" },
+    opts = {
+    },
+  },
 }
