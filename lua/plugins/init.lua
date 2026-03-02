@@ -1,5 +1,3 @@
--- local cmp = require "cmp"
-
 return {
   {
     import = "nvchad.blink.lazyspec",
@@ -38,6 +36,8 @@ return {
         "pyright",
         "rust-analyzer",
         "wgsl-analyzer",
+        "vue-language-server",
+        "typescript-language-server",
         -- "sqlls",
       },
       automatic_installation = true,
@@ -59,9 +59,15 @@ return {
         "wgsl",
         "markdown",
         "markdown_inline",
+        "vue",
+        "typescript",
+        "html",
+        "css",
       },
       build = ":TSUpdate",
+      indent = { enable = true },
       highlight = { enable = true },
+      folds = { enable = true },
     },
   },
   {
@@ -168,10 +174,8 @@ return {
     end,
   },
   {
-    "pmizio/typescript-tools.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    ft = { "typescript", "typescriptreact", "javascript", "javscriptreact" },
-    opts = {
-    },
+    "vhyrro/luarocks.nvim",
+    priority = 1000,
+    config = true,
   },
 }

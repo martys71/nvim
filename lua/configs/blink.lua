@@ -18,4 +18,10 @@ opts.sources.providers = {
   },
 }
 
+opts.completion.list = { selection = { preselect = false, auto_insert = false } }
+-- opts.keymap = {
+-- preset = 'default',
+-- ['<ESC>'] = { 'hide', 'fallback' },
+-- ['jk'] = { 'hide', 'fallback' },
+-- }
 return opts
