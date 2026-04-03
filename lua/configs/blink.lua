@@ -3,7 +3,7 @@ local opts = require "nvchad.blink.config"
 -- print(vim.inspect(opts))
 
 opts.fuzzy = {
-  implementation = "prefer_rust_with_warning",
+  implementation = "lua",
 }
 
 opts.sources.per_filetype = {
