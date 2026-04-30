@@ -53,8 +53,6 @@ return {
         "vim",
         "lua",
         "vimdoc",
-        "html",
-        "css",
         "rust",
         "wgsl",
         "markdown",
@@ -68,6 +66,7 @@ return {
       indent = { enable = true },
       highlight = { enable = true },
       folds = { enable = true },
+      lazy = false,
     },
   },
   {
@@ -115,19 +114,19 @@ return {
       require("pest-vim").setup {}
     end,
   },
-  {
-    "nvim-neorg/neorg",
-    lazy = false,  -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
-    version = "*", -- Pin Neorg to the latest stable release
-    config = function()
-      require("neorg").setup {
-        load = {
-          ["core.defaults"] = {},
-          ["core.concealer"] = {},
-        },
-      }
-    end,
-  },
+  -- {
+  --   "nvim-neorg/neorg",
+  --   lazy = false,  -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
+  --   version = "*", -- Pin Neorg to the latest stable release
+  --   config = function()
+  --     require("neorg").setup {
+  --       load = {
+  --         ["core.defaults"] = {},
+  --         ["core.concealer"] = {},
+  --       },
+  --     }
+  --   end,
+  -- },
   {
     "kristijanhusak/vim-dadbod-ui",
     dependencies = {
@@ -146,6 +145,7 @@ return {
   },
   {
     "saghen/blink.cmp",
+    dependencies = { "saghen/blink.lib", },
     opts = function()
       require "configs.blink"
     end,
