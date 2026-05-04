@@ -1,10 +1,10 @@
-local map=vim.keymap.set
+local map = vim.keymap.set
 
 vim.g.rustaceanvim = {
   server = {
     on_attach = function(_, _)
       map("n", "<leader>k", ":RustLsp hover actions<CR>")
-      map("n", "<leader>a", ":RustLsp codeAction<CR>")
+      map("n", "<leader>l", ":RustLsp codeAction<CR>")
     end,
   },
   tools = {
@@ -13,4 +13,3 @@ vim.g.rustaceanvim = {
     },
   },
 }
-

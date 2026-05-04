@@ -72,7 +72,7 @@ return {
   },
   {
     "mrcjkb/rustaceanvim",
-    version = "^6",
+    version = "^9",
     lazy = false,
     config = function()
       require "configs.rustaceanvim"
@@ -146,7 +146,7 @@ return {
   },
   {
     "saghen/blink.cmp",
-    dependencies = { "saghen/blink.lib", },
+    dependencies = { "saghen/blink.lib" },
     opts = function()
       require "configs.blink"
     end,
@@ -178,5 +178,19 @@ return {
     "vhyrro/luarocks.nvim",
     priority = 1000,
     config = true,
+  },
+  {
+    "coder/claudecode.nvim",
+    dependencies = { "folke/snacks.nvim" },
+    config = true,
+    keys = {
+      { "<leader>ac", "<cmd>ClaudeCode<cr>",           desc = "Toggle Claude" },
+      { "<leader>af", "<cmd>ClaudeCodeFocus<cr>",      desc = "Focus Claude" },
+      { "<leader>ar", "<cmd>ClaudeCode --resume<cr>",  desc = "Resume sesji" },
+      { "<leader>ab", "<cmd>ClaudeCodeAdd %<cr>",      desc = "Dodaj bufor" },
+      { "<leader>as", "<cmd>ClaudeCodeSend<cr>",       mode = "v",            desc = "Wyślij zaznaczenie" },
+      { "<leader>aa", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Akceptuj diff" },
+      { "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>",   desc = "Odrzuć diff" },
+    },
   },
 }
